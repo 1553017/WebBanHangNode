@@ -1,0 +1,11 @@
+{
+    "port" : 5000,
+    "api" : {
+      "host" : "api.sandbox.paypal.com",
+      "port" : "",
+      "mode": "sandbox",
+      "client_id" : "AX6-9Wd3_frVTQ4NSB9mAllBLXbARftES9XGpar-EodmHPevlWEBCNR-a0-5hF3rcLk4nf5UonhgsjiX",
+      "client_secret" : "EF-NWgzY-VihEFvVonrjTBlWu5nM8Xz08fAC0nMVbL1AS50_59_e8bptDr4FKEOMpeIlSvuhMnZi--dk"
+    }
+  }
+  

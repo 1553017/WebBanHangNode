@@ -1,0 +1,199 @@
+<%- include ("../partials/header.ejs") %>
+<div class="main">
+  <div class="container-fluid">
+    <div class="row category-page-row mx-auto no-gutters">
+      <div class="col-3">
+        <div id="list-item">
+          <div><h4>Danh mục sản phẩm</h4> </div>
+          <ul>
+            <li>
+              <a href="#"
+                ><i class="fab fa-apple"></i><span>Trái cây sạch</span>
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fab fa-apple"></i><span>Rau củ quả</span>
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fab fa-apple"></i><span>Thịt cá - Hải sản</span>
+              </a>
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fab fa-apple"></i><span>Gia vị - Ngũ cốc</span>
+              </a>
+            </li>
+            <li>
+              <a href="#"><i class="fab fa-apple"></i><span>Đồ uống</span> </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-9 product-list">
+        <div class="food-item">
+          <div class="container">
+            <div class="row menu-horizontal">
+              <div class="col medium-2 small-4 large-2 menu-horizontal-item">
+                <div class="col-inner">
+                  <div class="box-image">
+                    <a href=""
+                      ><img src="../images/logo.png" class="img-fluid" alt=""
+                    /></a>
+                  </div>
+                  <div class="box-text text-center">
+                    <div class="box-text-inner">
+                      <p><b>Tất cả sản phẩm</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col medium-2 small-4 large-2 menu-horizontal-item">
+                <div class="col-inner">
+                  <div class="box-image">
+                    <a href=""
+                      ><img src="../images/logo.png" class="img-fluid" alt=""
+                    /></a>
+                  </div>
+                  <div class="box-text text-center">
+                    <div class="box-text-inner">
+                      <p><b>Trái cây</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col medium-2 small-4 large-2 menu-horizontal-item">
+                <div class="col-inner">
+                  <div class="box-image">
+                    <a href=""
+                      ><img src="../images/logo.png" class="img-fluid" alt=""
+                    /></a>
+                  </div>
+                  <div class="box-text text-center">
+                    <div class="box-text-inner">
+                      <p><b>Rau củ quả</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col medium-2 small-4 large-2 menu-horizontal-item">
+                <div class="col-inner">
+                  <div class="box-image">
+                    <a href=""
+                      ><img src="../images/logo.png" class="img-fluid" alt=""
+                    /></a>
+                  </div>
+                  <div class="box-text text-center">
+                    <div class="box-text-inner">
+                      <p><b>Thịt, hải sản</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col medium-2 small-4 large-2 menu-horizontal-item">
+                <div class="col-inner">
+                  <div class="box-image">
+                    <a href=""
+                      ><img src="../images/logo.png" class="img-fluid" alt=""
+                    /></a>
+                  </div>
+                  <div class="box-text text-center">
+                    <div class="box-text-inner">
+                      <p><b>Đồ uống</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col medium-2 small-4 large-2 menu-horizontal-item">
+                <div class="col-inner">
+                  <div class="box-image">
+                    <a href=""
+                      ><img src="../images/logo.png" class="img-fluid" alt=""
+                    /></a>
+                  </div>
+                  <div class="box-text text-center">
+                    <div class="box-text-inner">
+                      <p><b>Thực phẩm chế biến</b></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="vegetables">
+              <div class="title">
+                <h2>Rau củ quả</h2>
+                <div class="row">
+                  <% products.forEach( function (product) {%>
+                  <div class="col-sm-3 col-md-3">
+                    <div class="card">
+                      <img src="<%= product.imagePath %>" alt="" />
+                      <div class="card-item-body">
+                        <h5 class="card-title"><%= product.title %></h5>
+                        <span class="label label-sucess"
+                          ><%= product.price %> $</span
+                        >
+                        <div class="add-to-cart-btn">
+                          <a href="/detail/<%= product.id%>" class=""
+                            >Lựa chọn các tùy chọn</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <% }) %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="pagination-wrapper ">
+            <nav aria-label="Page navigation example">
+              <% if(totalPage > 0) {%>
+              <ul class="pagination justify-content-end">
+                <% if( currentPage == 1 ) { %>
+                <li class="page-item disabled">
+                  <a class="page-link" href="#" tabindex="-1">First</a>
+                </li>
+                <% } else { %>
+                <li class="page-item">
+                  <a class="/" href="/">First</a>
+                </li>
+                <% } %>
+                <% var i = (Number(currentPage) > 5 ? Number(currentPage) - 4: 1) %>
+                <% if (i !==1 ) { %>
+                <li class="page-item disabled"><a ">...</a></li>
+                <% } %>
+                <% for(; i<= (Number(currentPage) + 4) && i <= totalPage; i++) { %>
+                  <% if(i == currentPage) { %>
+                    <li class="page-item active"><a href="?page=<%= i %>" class="page-link"><%= i %></a></li>
+                  <% } else { %>
+                    <li ><a href="?page=<%= i %>" class="page-link"><%= i %></a></li>
+                  <% } %>
+                  <% if( i == Number(currentPage) + 4 && i < totalPage) { %>
+                    <li class="page-item disabled"><a>...</a></li>
+                  <% } %>
+                <% } %>
+                <% if(currentPage == totalPage) { %>
+                  <li class="page-item disabled"><a class="page-link">Last</a></li>
+                <% } else { %>
+                  <li><a href="?page=<%= totalPage %>" class="page-link">Last</a></li>
+                <% } %>  
+                <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active">
+                  <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link" href="?page=<%= nextPage%>">Next</a>
+                </li> -->
+              </ul>
+              <% }%>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include ("../partials/footer.ejs") %>

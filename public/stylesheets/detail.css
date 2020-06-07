@@ -1,0 +1,48 @@
+/* .fit-image {
+    width: 100%;
+    object-fit: cover;
+} */
+span.amount {
+  color: red;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+span .woocommerce-Price-currencySymbol{
+    font-size: 0.75em;
+    vertical-align: top;
+    font-size: 16px;
+}
+
+.select-no-gutter > [class="col-4"] {
+  padding-left: 0;
+}
+.btn-add-to-cart {
+  width: 100%;
+  text-align: center;
+}
+.btn-add-to-cart strong {
+  line-height: 1;
+  font-size: 16px;
+}
+
+.btn-add-to-cart span {
+  line-height: 1;
+  font-size: 16px;
+}
+
+.btn-buy-now {
+  width: 100%;
+}
+
+.btn-buy-now strong {
+  color: #ffffff;
+  line-height: 1;
+  font-size: 16px;
+}
+
+.btn-buy-now span {
+  color: #ffffff;
+  line-height: 1;
+  font-size: 16px;
+}

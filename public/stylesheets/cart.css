@@ -1,0 +1,16 @@
+/* .img-responsive {
+ width: 100px;
+} */
+td > input{
+  display: inline;
+}
+
+.quantity-text{
+width: 50%;
+/* display: inline inline-block; */
+}
+
+.fa-minus-circle {
+  font-size: 22px;
+  text-align: center;
+}

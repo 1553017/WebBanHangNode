@@ -1,0 +1,126 @@
+<%- include ("../partials/header.ejs") %>
+<div class="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-7">
+        <form action="" method="POST">
+          <table id="cart" class="table table-responsive-sm fixed">
+            <thead>
+              <tr>
+                <th style="width: 50%;">Tên sản phẩm</th>
+                <th style="width: 16.66%;">Giá</th>
+                <th style="width: 16.66%;">Số lượng</th>
+                <th style="width: 16.66%;">Thành tiền</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% products.forEach(function (product) {%>
+              <tr>
+                <td data-th="Product">
+                  <div class="row">
+                    <div class="col-sm-2 product-remove">
+                      <a href=""><i class="fas fa-minus-circle"></i></a>
+                    </div>
+                    <div class="col-sm-4 hidden-xs">
+                      <img
+                        src="<%= product.imagePath %>"
+                        alt=""
+                        class="img-fluid"
+                      />
+                    </div>
+                    <div class="col-sm-6"><a>Sản phẩm</a></div>
+                  </div>
+                </td>
+                <td data-th="Price"><%= product.item.price%></td>
+                <td data-th="Quantity">
+                  <div class="quantity buttons_added">
+                    <input
+                      type="button"
+                      value="-"
+                      class="minus button is-form"
+                    />
+                    <input
+                      type="number"
+                      step="1"
+                      min="0"
+                      value="1"
+                      class="text-center quantity-text"
+                    />
+                    <input
+                      type="button"
+                      value="+"
+                      class="plus button is-form"
+                    />
+                  </div>
+                </td>
+                <td data-th="Subtotal"><%= product.price%>đ</td>
+              </tr>
+              <% }) %>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>
+                  <a href="" class="btn btn-warning"
+                    ><i></i>Tiếp tục mua hàng</a
+                  >
+                </td>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center">
+                  <strong>Tổng tiền: <%= session.cart.totalPrice %>đ</strong>
+                </td>
+                <td>
+                  <a href="" class="btn btn-success btn-block"
+                    >Thanh toán <i></i
+                  ></a>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </form>
+      </div>
+      <div class="col-5 cart-collateal">
+        <div class="cart-sidebar">
+          <div></div>
+          <div class="cart-pay">
+            <table class="table table-responsive-sm fixed">
+              <thead>
+                <th>Thanh toán</th>
+              </thead>
+              <tbody>
+                <tr class="cart-subtotal">
+                  <th>Tổng thu:</th>
+                  <td><%= session.cart.totalPrice %>đ</td>
+                </tr>
+                <tr>
+                  <th>Phí giao hàng:</th>
+                  <td>10.000đ</td>
+                </tr>
+                <tr class="order-total">
+                  <th>Tổng:</th>
+                  <td data-title="Tổng">
+                    <span><%= session.cart.totalPrice %>đ</span>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="2">
+                    <form action="/payment" method="POST">
+                      <input
+                        type="submit"
+                        class="btn btn-warning"
+                        style="width: 100%;"
+                        value="Đặt hàng"
+                      />
+                    </form>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include ("../partials/footer.ejs") %>

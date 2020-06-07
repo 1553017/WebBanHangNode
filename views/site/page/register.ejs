@@ -1,0 +1,44 @@
+
+<div id="sign-up-in" class="sign-up-in-modal col-md-6 m-auto">
+    <%- include ("../partials/messages.ejs") %>
+  <form action="/users/register" class="modal-content" method="POST">
+    <div class="container">
+      <h1>Đăng ký</h1>
+      <p>Vui lòng điền thông tin để đăng ký tài khoản</p>
+      <hr />
+      <label for="email"><b>Email</b></label>
+      <input
+        type="name"
+        placeholder="Hãy nhập Email"
+        name="email"
+        value="<%= typeof email != 'undefined' ? email: ''%>"
+        required
+      />
+      <label for="password"><b>Mật khẩu</b></label>
+      <input
+        type="password"
+        placeholder="Hãy nhập mật khẩu"
+        name="password"
+        value="<%= typeof password != 'undefined' ? password: ''%>"
+        required
+      />
+      <label for="password2"><b>Nhập lại mật khẩu</b></label>
+      <input
+        type="password"
+        placeholder="Hãy nhập lại mật khẩu"
+        name="password2"
+        required
+      />
+      <label>
+        <input type="checkbox" name="remember" id="remember" />Ghi nhớ
+      </label>
+      <button type="button" onclick="Cancel_login_up()" class="cancelbtn">
+        Cancel
+      </button>
+      <button type="submit" class="signupbtn">Đăng ký</button>
+    </div>
+  </form>
+  <p class="lead mt-4">Have an account?</p>
+  <a href="/users/login">Login</a>
+</div>
+<%- include ("../partials/footer.ejs") %>

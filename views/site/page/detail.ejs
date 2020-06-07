@@ -1,0 +1,99 @@
+<%- include ("../partials/header.ejs") %>
+<div class="main">
+  <div class="page-top"><h2>Trang chủ</h2></div>
+  <div class="container">
+    <div class="row category-page-row mx-auto">
+      <div class="col-3">
+        <!-- <div id="find">
+          <span>Tìm theo giá</span>
+          <ul>
+            <div id="find-all">
+              <input type="checkbox" />
+              <li>Toàn bộ giá</li>
+            </div>
+            <div id="find-range">
+              <input type="checkbox" />
+              <li>Range</li>
+            </div>
+          </ul>
+        </div> -->
+        <div id="list-item">
+          
+          <ul>
+            <li><a href="#">Đặc sản vùng miền</a></li>
+            <li><a href="#">Đồ uống</a></li>
+            <li><a href="#">Gạo lương thực thiết yếu</a></li>
+            <li><a href="#">Khô mắm - đồ đóng hộp</a></li>
+            <li><a href="#">Đặc sản vùng miền</a></li>
+            <li><a href="#">Đặc sản vùng miền</a></li>
+            <li><a href="#">Đặc sản vùng miền</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="container"></div>
+        <div class="food-item">
+          <div class="container">
+            <div class="container">
+              <div class="wrapper row">
+                <div class="preview col-md-5">
+                  <div class="tab-pane">
+                    <img
+                      src="<%= product.imagePath %>"
+                      class="img-fluid"
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div class="details col-md-6">
+                  <h3 class="product-title" class=""><%= product.title %></h3>
+                  <span class="woocommerce-Price-amount amount"
+                    ><%= product.price %>&nbsp;
+                    <span class="woocommerce-Price-currencySymbol"
+                      >₫</span
+                    ></span
+                  >
+                  <p>Xuất xứ: <span><%= product.origin%></span></p>
+                  <p>Trọng lượng: <span><%= product.weight%></span></p>
+                  <br />
+                  <div class="col-auto">
+                    <div class="row select-no-gutter">
+                      <div class="col-4"><h4>Lựa chọn:</h4></div>
+
+                      <select
+                        class="custom-select col-8"
+                        id="inlineFormCustomSelect"
+                      >
+                        <option selected>Chọn một tùy chọn</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                      </select>
+                    </div>
+                  </div>
+                  <hr />
+                  <h3>Tổng tiền:</h3>
+                  <div class="action">
+                    <a
+                      href="/add-to-cart/<%= product.id %>"
+                      role="button"
+                      class="btn btn-success btn-add-to-cart"
+                      ><strong>Thêm vào giỏ hàng</strong>
+                      <br />
+                      <span>Click vào giỏ hàng để xem danh sách sản phẩm</span>
+                    </a>
+                    <a role="button" class="btn btn-danger btn-buy-now"
+                      ><strong>Mua ngay</strong>
+                      <br />
+                      <span>Gọi điện xác nhận và giao hàng tận nơi</span></a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include ("../partials/footer.ejs") %>
